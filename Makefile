@@ -85,6 +85,11 @@ gen-go:
         -w${PWD} $(OTEL_DOCKER_PROTOBUF) --proto_path=${PWD}/proto/ \
         --go_out=./$(PROTO_GEN_GO_DIR) -I${PWD}/proto/ ${PWD}/$(file)))
 
+# !!!REMOVE THIS BEFORE PUSH: just for testing on forked repository
+ifeq ($(LAST_RELEASE_TAG),)
+LAST_RELEASE_TAG := v0.14.0
+endif
+
 # Breaking change detection
 .PHONY: breaking-change
 breaking-change:
