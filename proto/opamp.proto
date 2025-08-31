@@ -28,12 +28,6 @@ message AgentToServer {
     // MUST be 16 bytes long and SHOULD be generated using the UUID v7 spec.
     bytes instance_uid = 1;
 
-    // The sequence number is incremented by 1 for every AgentToServer sent
-    // by the Agent. This allows the Server to detect that it missed a message when
-    // it notices that the sequence_num is not exactly by 1 greater than the previously
-    // received one.
-    uint64 sequence_num = 2;
-
     // Data that describes the Agent, its type, where it runs, etc.
     // May be omitted if nothing changed since last AgentToServer message.
     AgentDescription agent_description = 3;
